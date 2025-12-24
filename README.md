@@ -30,5 +30,5 @@ curl -sSL https://raw.githubusercontent.com/unbound-future/infra-bootstrap/main/
 ```
 需要加入 k3s 集群的服务器
 ```bash
-curl -sSL https://raw.githubusercontent.com/unbound-future/infra-bootstrap/main/join_k3s.sh | sudo bash -s <server_ip> <token>
+curl -sSL https://raw.githubusercontent.com/unbound-future/infra-bootstrap/main/setup_disk.sh | sudo bash -s <server_ip> <token>
 ```
