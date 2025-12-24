@@ -76,7 +76,7 @@ echo "Step 3: Checking for K3s join parameters..."
 if [ ! -z "$1" ] && [ ! -z "$2" ]; then
     echo "Parameters detected. Invoking K3s join script..."
     # Replace the URL below with your actual GitHub Raw URL
-    curl -sSL https://raw.githubusercontent.com/<YOUR_USERNAME>/node-init/main/join_k3s.sh | bash -s -- "$1" "$2"
+    curl -sSL https://raw.githubusercontent.com/unbound-future/infra-bootstrap/main/join_k3s.sh | bash -s - "$1" "$2"
 else
     echo "No K3s parameters provided. Initialization finished."
 fi

@@ -16,8 +16,7 @@ echo "Starting K3s Agent installation (Version: $K3S_VERSION)..."
 
 # Install K3s using the official installer script with specific version and tokens
 curl -sfL https://get.k3s.io | INSTALL_K3S_VERSION="$K3S_VERSION" \
-  K3S_URL="$K3S_URL" \
-  K3S_TOKEN="$K3S_TOKEN" \
-  sh -
+  INSTALL_K3S_EXEC="agent --server $K3S_URL --token $K3S_TOKEN" \
+  sh -s -
 
 echo "K3s Agent service has been started and joined the cluster."
