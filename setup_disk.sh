@@ -46,10 +46,9 @@ for dev in $(lsblk -dn -o NAME,TYPE | awk '$2=="disk" {print $1}'); do
 
     if [ "$child_count" -eq 1 ] && [ -z "$fs_type" ] && [ -z "$is_mounted" ]; then
         # Increment counter safely (prevents script exit under set -e)
-        
-        
+                
         # Determine mount point name: /data, /data2, /data3...
-        if [ "$disk_count" -eq 1 ]; then
+        if [ "$disk_count" -eq 0 ]; then
             TARGET_MOUNT="${MOUNT_BASE}"
         else
             TARGET_MOUNT="${MOUNT_BASE}${disk_count}"
