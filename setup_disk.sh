@@ -46,7 +46,7 @@ for dev in $(lsblk -dn -o NAME,TYPE | awk '$2=="disk" {print $1}'); do
 
     if [ "$child_count" -eq 1 ] && [ -z "$fs_type" ] && [ -z "$is_mounted" ]; then
         # Increment counter safely (prevents script exit under set -e)
-        disk_count=$((disk_count + 1))
+        
         
         # Determine mount point name: /data, /data2, /data3...
         if [ "$disk_count" -eq 1 ]; then
@@ -70,6 +70,7 @@ for dev in $(lsblk -dn -o NAME,TYPE | awk '$2=="disk" {print $1}'); do
             echo "UUID=$UUID $TARGET_MOUNT ext4 $MOUNT_OPTS 0 2" >> /etc/fstab
             echo "Disk $DEV_PATH successfully added to /etc/fstab."
         fi
+        disk_count=$((disk_count + 1))
     else
         echo "Skipping $DEV_PATH: Device is not empty or is the system drive."
     fi
